@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hedges/docker-react-demo -f Dockerfile.dev .
+
+script:
+  - docker run hedges/docker-react-demo npm run test -- --coverage
